@@ -39,9 +39,17 @@ if ($uri === '/') {
 
         <?php
         if ($path[1] == 'customer') {
-            echo '<h2>This page would show the customer with cust. no. ' . $path[2] . ', and all of their information.</h2>';
+            if (count($path) > 2) {
+                echo '<h2>This page would show the customer with cust. no. ' . $path[2] . ', and all of their information.</h2>';
+            } else {
+                echo '<h2>This page would show a list of all of the customers.</h2>';
+            }
         } elseif ($path[1] == 'product') {
-            echo '<h2>This page would show the product with prod. no. ' . $path[2] . ', and all of the info about that product.</h2>';
+            if (count($path) > 2) {
+                echo '<h2>This page would show the product with prod. no. ' . $path[2] . ', and all of the info about that product.</h2>';
+            } else {
+                echo '<h2>This page would show a list of all of the products.</h2>';
+            }
         } else {
             echo '<h2>Error, no information returned.</h2>';
         }
